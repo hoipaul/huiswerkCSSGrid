@@ -1,1 +1,81 @@
-/*Maak hier jouw CSS!*/
+body{
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    background-color: #ffefdb;
+}
+
+.grid-item {
+    padding: 8px;
+    color: white;
+    display: flex;
+    /*flex-direction: row;*/
+    align-items: center;
+    justify-content: center;
+    /*text-align: center;*/
+}
+
+#grid-header {
+    background-color: #ba3b44;
+    grid-area: header;
+}
+
+#grid-aside {
+    background-color: #ba3b44;
+    grid-area: aside;
+}
+
+#grid-middle {
+    background-color: #ba3b44;
+    grid-area: middle;
+}
+
+#grid-middle-small {
+    background-color: #ba3b44;
+    grid-area: middle-small;
+}
+
+#grid-main {
+    background-color: #ba3b44;
+    grid-area: main;
+}
+
+#grid-footer {
+    background-color: #ba3b44;
+    grid-area: footer;
+}
+
+/*Dit is dan voor alles kleiner dan 576, dus Mobiel*/
+.grid-container {
+    background-color: #ffefdb;
+    display: grid;
+    row-gap: 16px;
+    column-gap: 16px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px auto 50px 50px 50px 50px 50px;
+    grid-template-areas:
+            "header"
+            "aside"
+            "middle"
+            "middle-small"
+            "main"
+            "footer";
+}
+
+/*Alles wat hier in staat is dus voor GROTER dan mobiel*/
+/*Tablets en desktops */
+@media screen and (min-width: 576px) {
+    .grid-container {
+        /*hier schrijven we alleen de properties*/
+        /*die moeten veranderen*/
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 50px 190px 100px auto 50px;
+        grid-template-areas:
+            "header main main"
+            "aside main main"
+            "aside middle middle-small"
+            "aside middle . "
+            "footer footer footer";
+    }
+}
